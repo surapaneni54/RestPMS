@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.pms.infinira.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.pms.infinira.com" xmlns:intf="http://service.pms.infinira.com" xmlns:tns1="http://models.pms.infinira.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.pms.infinira.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://models.pms.infinira.com"/>
+   <element name="getInstance">
+    <complexType/>
+   </element>
+   <element name="getInstanceResponse">
+    <complexType>
+     <sequence>
+      <element name="getInstanceReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCustomer">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="updateCustomerReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCustomer">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="createCustomerReturn" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCustomer">
+    <complexType>
+     <sequence>
+      <element name="customerId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="removeCustomerReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomer">
+    <complexType>
+     <sequence>
+      <element name="customerId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomerReturn" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://models.pms.infinira.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.pms.infinira.com"/>
+   <complexType name="Customer">
+    <sequence>
+     <element name="customerId" type="xsd:long"/>
+     <element name="customerName" nillable="true" type="xsd:string"/>
+     <element name="projectExecutive" nillable="true" type="xsd:string"/>
+     <element name="projectManager" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getCustomerResponse">
+
+      <wsdl:part element="impl:getCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCustomerRequest">
+
+      <wsdl:part element="impl:removeCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCustomerResponse">
+
+      <wsdl:part element="impl:removeCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomerRequest">
+
+      <wsdl:part element="impl:getCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getInstanceRequest">
+
+      <wsdl:part element="impl:getInstance" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createCustomerResponse">
+
+      <wsdl:part element="impl:createCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCustomerRequest">
+
+      <wsdl:part element="impl:updateCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCustomerResponse">
+
+      <wsdl:part element="impl:updateCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createCustomerRequest">
+
+      <wsdl:part element="impl:createCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getInstanceResponse">
+
+      <wsdl:part element="impl:getInstanceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PMSService">
+
+      <wsdl:operation name="getInstance">
+
+         <wsdl:input message="impl:getInstanceRequest" name="getInstanceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getInstanceResponse" name="getInstanceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCustomer">
+
+         <wsdl:input message="impl:updateCustomerRequest" name="updateCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateCustomerResponse" name="updateCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCustomer">
+
+         <wsdl:input message="impl:createCustomerRequest" name="createCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createCustomerResponse" name="createCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCustomer">
+
+         <wsdl:input message="impl:removeCustomerRequest" name="removeCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeCustomerResponse" name="removeCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomer">
+
+         <wsdl:input message="impl:getCustomerRequest" name="getCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomerResponse" name="getCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PMSServiceSoapBinding" type="impl:PMSService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getInstance">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getInstanceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getInstanceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PMSServiceService">
+
+      <wsdl:port binding="impl:PMSServiceSoapBinding" name="PMSService">
+
+         <wsdlsoap:address location="http://localhost:6060/PMS/services/PMSService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

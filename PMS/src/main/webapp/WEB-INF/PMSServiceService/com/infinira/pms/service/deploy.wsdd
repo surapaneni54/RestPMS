@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from PMSServiceService WSDL service -->
+
+  <service name="PMSService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.pms.infinira.com"/>
+      <parameter name="wsdlServiceElement" value="PMSServiceService"/>
+      <parameter name="schemaQualified" value="http://service.pms.infinira.com,http://models.pms.infinira.com"/>
+      <parameter name="wsdlServicePort" value="PMSService"/>
+      <parameter name="className" value="com.infinira.pms.service.PMSService"/>
+      <parameter name="wsdlPortType" value="PMSService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.pms.infinira.com" xmlns:retNS="http://service.pms.infinira.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getInstance" qname="operNS:getInstance" returnQName="retNS:getInstanceReturn" returnType="rtns:anyType" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service.pms.infinira.com" xmlns:retNS="http://service.pms.infinira.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateCustomer" qname="operNS:updateCustomer" returnQName="retNS:updateCustomerReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://service.pms.infinira.com" xmlns:tns="http://models.pms.infinira.com" qname="pns:customer" type="tns:Customer"/>
+      </operation>
+      <operation xmlns:operNS="http://service.pms.infinira.com" xmlns:retNS="http://service.pms.infinira.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createCustomer" qname="operNS:createCustomer" returnQName="retNS:createCustomerReturn" returnType="rtns:long" soapAction="">
+        <parameter xmlns:pns="http://service.pms.infinira.com" xmlns:tns="http://models.pms.infinira.com" qname="pns:customer" type="tns:Customer"/>
+      </operation>
+      <operation xmlns:operNS="http://service.pms.infinira.com" xmlns:retNS="http://service.pms.infinira.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="removeCustomer" qname="operNS:removeCustomer" returnQName="retNS:removeCustomerReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://service.pms.infinira.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:customerId" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://service.pms.infinira.com" xmlns:retNS="http://service.pms.infinira.com" xmlns:rtns="http://models.pms.infinira.com" name="getCustomer" qname="operNS:getCustomer" returnQName="retNS:getCustomerReturn" returnType="rtns:Customer" soapAction="">
+        <parameter xmlns:pns="http://service.pms.infinira.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:customerId" type="tns:long"/>
+      </operation>
+      <parameter name="allowedMethods" value="createCustomer updateCustomer removeCustomer getInstance getCustomer"/>
+
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;updateCustomer" type="java:com.infinira.pms.service.UpdateCustomer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;createCustomerResponse" type="java:com.infinira.pms.service.CreateCustomerResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;getCustomerResponse" type="java:com.infinira.pms.service.GetCustomerResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;updateCustomerResponse" type="java:com.infinira.pms.service.UpdateCustomerResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;removeCustomerResponse" type="java:com.infinira.pms.service.RemoveCustomerResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;getCustomer" type="java:com.infinira.pms.service.GetCustomer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;removeCustomer" type="java:com.infinira.pms.service.RemoveCustomer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://service.pms.infinira.com" qname="ns:&gt;createCustomer" type="java:com.infinira.pms.service.CreateCustomer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://models.pms.infinira.com" qname="ns:Customer" type="java:com.infinira.pms.models.Customer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
